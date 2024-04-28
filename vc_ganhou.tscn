@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnj86ou7wqa58"]
+
+[ext_resource type="Texture2D" uid="uid://cvlnlat0knuy2" path="res://sprites/136_Sem_Titulo_20240419133850.png" id="1_fxxim"]
+[ext_resource type="Script" path="res://vc_ganhou.gd" id="1_tvtoc"]
+[ext_resource type="FontFile" uid="uid://b6y5a14m0e5if" path="res://outros_assets/Myfont-Regular.ttf" id="3_daulu"]
+
+[node name="vcGanhou" type="Node2D"]
+position = Vector2(0, 1)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_tvtoc")
+
+[node name="fundo" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_fxxim")
+metadata/_edit_lock_ = true
+
+[node name="Como acabou" type="Label" parent="."]
+offset_left = 467.0
+offset_top = 283.0
+offset_right = 1459.0
+offset_bottom = 376.0
+theme_override_fonts/font = ExtResource("3_daulu")
+theme_override_font_sizes/font_size = 69
+text = "ACERTOU/ERROU!!!"
+horizontal_alignment = 1
+
+[node name="n_mude" type="Label" parent="."]
+offset_left = 693.333
+offset_top = 420.0
+offset_right = 1266.33
+offset_bottom = 513.0
+theme_override_fonts/font = ExtResource("3_daulu")
+theme_override_font_sizes/font_size = 69
+text = "A  PALAVRA  ERA"
+
+[node name="palavra" type="Label" parent="."]
+offset_left = 467.0
+offset_top = 551.666
+offset_right = 1455.0
+offset_bottom = 679.666
+theme_override_fonts/font = ExtResource("3_daulu")
+theme_override_font_sizes/font_size = 69
+text = "a resposta aparece aqui"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="jogar" type="Button" parent="."]
+offset_left = 591.667
+offset_top = 693.333
+offset_right = 866.667
+offset_bottom = 816.333
+theme_override_fonts/font = ExtResource("3_daulu")
+theme_override_font_sizes/font_size = 40
+text = "Jogar"
+
+[node name="inicio" type="Button" parent="."]
+offset_left = 1065.0
+offset_top = 693.333
+offset_right = 1340.0
+offset_bottom = 816.333
+theme_override_fonts/font = ExtResource("3_daulu")
+theme_override_font_sizes/font_size = 40
+text = "Tela inicial"
+
+[connection signal="pressed" from="jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="inicio" to="." method="_on_inicio_pressed"]

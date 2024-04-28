@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dji7k6kpax8fe"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ejhn0"]
+[ext_resource type="FontFile" uid="uid://b6y5a14m0e5if" path="res://outros_assets/Myfont-Regular.ttf" id="2_xh5c1"]
+[ext_resource type="PackedScene" uid="uid://cbvpibdtq2glc" path="res://bg.tscn" id="3_7u0fe"]
+
+[node name="main" type="Node2D"]
+position = Vector2(-67, -21)
+script = ExtResource("1_ejhn0")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 883.0
+offset_top = 384.0
+offset_right = 1129.0
+offset_bottom = 481.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_xh5c1")
+theme_override_font_sizes/font_size = 60
+text = "Jogar"
+metadata/_edit_use_anchors_ = true
+
+[node name="sair" type="Button" parent="."]
+offset_left = 900.0
+offset_top = 544.0
+offset_right = 1113.0
+offset_bottom = 619.0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_xh5c1")
+theme_override_font_sizes/font_size = 60
+text = "Sair
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" parent="." instance=ExtResource("3_7u0fe")]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = 22.0
+offset_right = 638.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2862, 0.34119, 0.54, 1)
+theme_override_colors/font_shadow_color = Color(0.1032, 0.255707, 0.43, 0.713726)
+theme_override_colors/font_outline_color = Color(0.2296, 0.46576, 0.82, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xh5c1")
+theme_override_font_sizes/font_size = 169
+text = "FORCA"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbvpibdtq2glc"]
+
+[ext_resource type="Texture2D" uid="uid://dhaput53xtpjg" path="res://sprites/133_Sem_Titulo_20240418161410.png" id="1_78duq"]
+
+[sub_resource type="GDScript" id="GDScript_ui7el"]
+script/source = "extends ParallaxBackground
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Bg" type="ParallaxBackground"]
+script = SubResource("GDScript_ui7el")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_78duq")

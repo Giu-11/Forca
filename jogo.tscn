@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://k1v2elgd1cut"]
+
+[ext_resource type="Script" path="res://jogo.gd" id="1_uli0r"]
+[ext_resource type="FontFile" uid="uid://b6y5a14m0e5if" path="res://outros_assets/Myfont-Regular.ttf" id="2_l22q2"]
+[ext_resource type="PackedScene" uid="uid://cbvpibdtq2glc" path="res://bg.tscn" id="3_8kr8a"]
+[ext_resource type="Texture2D" uid="uid://c5ve3wjgxondb" path="res://sprites/forca8.png" id="4_2f833"]
+[ext_resource type="Texture2D" uid="uid://5chgqah0u1ek" path="res://sprites/forca7.png" id="5_n4t34"]
+[ext_resource type="Texture2D" uid="uid://b5b5f72o3qrm1" path="res://sprites/forca6.png" id="6_te8n1"]
+[ext_resource type="Texture2D" uid="uid://byj6fdr0c7co2" path="res://sprites/forca4.png" id="7_syk4b"]
+[ext_resource type="Texture2D" uid="uid://dft3bij8mop68" path="res://sprites/forca3.png" id="8_b543x"]
+[ext_resource type="Texture2D" uid="uid://cvvygedelmxnl" path="res://sprites/forca2.png" id="9_ehf4l"]
+[ext_resource type="Texture2D" uid="uid://drad8l0om6g5q" path="res://sprites/Forca1.png" id="10_gkbpx"]
+[ext_resource type="PackedScene" uid="uid://bnj86ou7wqa58" path="res://vc_ganhou.tscn" id="11_qs1co"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wyp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2f833")
+}],
+"loop": true,
+"name": &"0hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n4t34")
+}],
+"loop": true,
+"name": &"1hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_te8n1")
+}],
+"loop": true,
+"name": &"2hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_syk4b")
+}],
+"loop": true,
+"name": &"3hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_b543x")
+}],
+"loop": true,
+"name": &"4hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ehf4l")
+}],
+"loop": true,
+"name": &"5hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gkbpx")
+}],
+"loop": true,
+"name": &"6hp",
+"speed": 5.0
+}]
+
+[node name="jogo" type="Node2D"]
+script = ExtResource("1_uli0r")
+
+[node name="Palavra" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 322.0
+offset_top = 435.0
+offset_right = 1001.0
+offset_bottom = 545.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("2_l22q2")
+theme_override_font_sizes/font_size = 50
+text = "A palavra vai ficar aqui"
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 105.0
+offset_bottom = 70.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_l22q2")
+text = "Voltar"
+metadata/_edit_lock_ = true
+
+[node name="Bg" parent="." instance=ExtResource("3_8kr8a")]
+
+[node name="forca" type="AnimatedSprite2D" parent="."]
+position = Vector2(369, 351)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_5wyp8")
+animation = &"0hp"
+metadata/_edit_lock_ = true
+
+[node name="vcGanhou" parent="." instance=ExtResource("11_qs1co")]
+visible = false
+
+[node name="letrasusadas" type="Label" parent="."]
+offset_left = 142.0
+offset_top = 33.0
+offset_right = 846.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l22q2")
+theme_override_font_sizes/font_size = 30
+text = "letras que já foram usadas a b c d e f g h i j k l m n o p q r s t u v w x y z"
+autowrap_mode = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
