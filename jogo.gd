@@ -1,6 +1,9 @@
 extends Node2D
 
-var file = "res://outros_assets/br-sem-acentos.txt"
+var dificil = "res://outros_assets/dificil.txt"
+var medio = "res://outros_assets/medio.txt"
+var facil = "res://outros_assets/facil.txt"
+var surpresa = "res://outros_assets/br-sem-acentos.txt"
 var rng = RandomNumberGenerator.new()
 var palavra = []
 var palavrarevelada = []
@@ -14,7 +17,17 @@ var alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 
 func _ready():
-	var f = FileAccess.open(file, FileAccess.READ)
+	var arq
+	match Dados.dificuldade:
+		'd':
+			arq = dificil
+		'm':
+			arq = medio
+		'f':
+			arq = facil
+		_:
+			arq = surpresa
+	var f = FileAccess.open(arq, FileAccess.READ)
 	var tamanho = f.get_length()
 	hp = 6
 	print(tamanho)
